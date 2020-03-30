@@ -16,7 +16,6 @@ router.get('/', function(req, res, next) {
 		let json = JSON.parse(response.body);
 		for(let i = 0; i < json.length; i++)
 		{
-			console.log("new quote");
 			quotes.push(json[i].quote);
 		}
 		res.render('index', { title: 'PS4', quotes: quotes });
