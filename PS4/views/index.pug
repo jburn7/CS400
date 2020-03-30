@@ -2,4 +2,5 @@ extends layout
 
 block content
   h1= title
-  p #{quotes}
+  each val in quotes
+    p #{val}

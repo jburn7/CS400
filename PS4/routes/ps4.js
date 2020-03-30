@@ -13,10 +13,11 @@ router.get('/', function(req, res, next) {
 	request(options, function (error, response) {
 		if (error) throw new Error(error);
 		let quotes = [];
-		for(let i = 0; i < request.body.length; i++)
+		let json = JSON.parse(response.body);
+		for(let i = 0; i < json.length; i++)
 		{
 			console.log("new quote");
-			quotes.add(request.body[i]);
+			quotes.push(json[i].quote);
 		}
 		res.render('index', { title: 'PS4', quotes: quotes });
 	});
